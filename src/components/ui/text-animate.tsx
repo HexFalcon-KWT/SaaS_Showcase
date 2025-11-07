@@ -84,7 +84,7 @@ export const TextAnimate = memo(
     ...props
   }: TextAnimateProps) => {
     const selectedVariants = variants[animation];
-    const MotionComponent = motion.create(Component);
+    const MotionComponent = motion(Component);
 
     const segments =
       by === "character"
