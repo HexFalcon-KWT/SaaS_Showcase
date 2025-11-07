@@ -344,7 +344,7 @@ export default function ComponentsPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-16 border-b">
+      <section className="relative py-8 md:py-16 border-b">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             variants={staggerContainer}
@@ -377,27 +377,29 @@ export default function ComponentsPage() {
       </section>
 
       {/* Tabs + Sidebar + Content */}
-      <section className="py-8">
-        <div className="container mx-auto px-4">
+      <section className="py-4 md:py-8">
+        <div className="container mx-auto px-4 md:px-6">
           <Tabs defaultValue="Input" className="w-full" onValueChange={setActiveTab}>
-            <TabsList className="mb-8 grid w-full grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-2">
-              {categories.map((category) => (
-                <TabsTrigger key={category} value={category} className="text-sm md:text-base">
-                  {category}
-                </TabsTrigger>
-              ))}
-            </TabsList>
+            <div className="mb-4 md:mb-8 overflow-x-auto scrollbar-hide">
+              <TabsList className="inline-flex md:grid w-full md:w-full min-w-max md:min-w-0 md:grid-cols-4 lg:grid-cols-7 gap-1 md:gap-2">
+                {categories.map((category) => (
+                  <TabsTrigger key={category} value={category} className="text-sm md:text-base whitespace-nowrap flex-shrink-0">
+                    {category}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
 
             {categories.map((category) => (
               <TabsContent key={category} value={category} className="mt-0">
-                <div className="flex gap-6">
+                <div className="flex flex-col md:flex-row gap-6 overflow-hidden">
                   <ComponentSidebar
                     components={componentsByCategory[category as keyof typeof componentsByCategory]}
                     activeComponent={activeComponent}
                     onComponentClick={handleComponentClick}
                   />
 
-                  <div className="flex-1 space-y-12">
+                  <div className="flex-1 space-y-6 md:space-y-12 w-full max-w-full overflow-x-hidden min-w-0">
                     {/* INPUT COMPONENTS */}
                     {category === "Input" && (
                       <>

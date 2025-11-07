@@ -18,8 +18,8 @@ export function ComponentSidebar({
   onComponentClick,
 }: ComponentSidebarProps) {
   return (
-    <div className="w-64 border-r bg-muted/30 sticky top-16 h-[calc(100vh-4rem)]">
-      <ScrollArea className="h-full">
+    <div className="max-md:hidden md:flex w-64 border-r bg-muted/30 sticky top-16 h-[calc(100vh-4rem)] flex-shrink-0">
+      <ScrollArea className="h-full w-full">
         <div className="p-4">
           <h3 className="mb-4 text-sm font-semibold text-muted-foreground uppercase tracking-wider">
             Components

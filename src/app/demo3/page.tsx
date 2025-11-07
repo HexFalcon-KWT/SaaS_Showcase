@@ -298,7 +298,7 @@ export default function Demo1Page() {
           <div className="mx-auto max-w-4xl">
             <HeroVideoDialog
               animationStyle="from-center"
-              videoSrc="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              videoSrc="https://www.youtube.com/embed/arj7oStGLkU"
               thumbnailSrc="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=675&fit=crop"
               thumbnailAlt="Product Demo"
             />
@@ -366,27 +366,29 @@ export default function Demo1Page() {
                 transition={{ delay: idx * 0.1 }}
               >
                 <CardSpotlight className={`p-8 ${plan.popular ? "enhanced-shadow" : ""}`}>
-                  {plan.popular && (
-                    <div className="mb-4 inline-block rounded-full bg-primary px-3 py-1 text-xs text-primary-foreground">
-                      Most Popular
+                  <div className="text-white dark:text-foreground">
+                    {plan.popular && (
+                      <div className="mb-4 inline-block rounded-full bg-primary px-3 py-1 text-xs text-primary-foreground">
+                        Most Popular
+                      </div>
+                    )}
+                    <h3 className="mb-2 text-2xl font-bold">{plan.name}</h3>
+                    <div className="mb-6">
+                      <span className="text-4xl font-bold">{plan.price}</span>
+                      {plan.price !== "Custom" && <span className="text-white/70 dark:text-muted-foreground">/month</span>}
                     </div>
-                  )}
-                  <h3 className="mb-2 text-2xl font-bold">{plan.name}</h3>
-                  <div className="mb-6">
-                    <span className="text-4xl font-bold">{plan.price}</span>
-                    {plan.price !== "Custom" && <span className="text-muted-foreground">/month</span>}
+                    <ul className="mb-8 space-y-3">
+                      {plan.features.map((feature, i) => (
+                        <li key={i} className="flex items-center gap-2">
+                          <Check className="h-5 w-5 text-green-500" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <button className="w-full rounded-lg bg-primary px-6 py-3 font-medium text-primary-foreground transition-all hover:scale-105">
+                      Get Started
+                    </button>
                   </div>
-                  <ul className="mb-8 space-y-3">
-                    {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-center gap-2">
-                        <Check className="h-5 w-5 text-green-500" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <button className="w-full rounded-lg bg-primary px-6 py-3 font-medium text-primary-foreground transition-all hover:scale-105">
-                    Get Started
-                  </button>
                 </CardSpotlight>
               </motion.div>
             ))}
