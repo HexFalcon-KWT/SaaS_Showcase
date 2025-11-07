@@ -21,7 +21,6 @@ export default function Demo1() {
           <div className="text-2xl font-bold">DataInsight Pro</div>
           <div className="flex gap-6 items-center">
             <Link href="/" className="hover:text-primary">Home</Link>
-            <Link href="/demo2" className="hover:text-primary">Demo 2</Link>
             <Button variant="outline">Sign In</Button>
             <Button>Get Started</Button>
           </div>
@@ -216,8 +215,8 @@ export default function Demo1() {
           </div>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="text-center">
-              <Avatar className="h-16 w-16 mx-auto mb-4 bg-primary text-primary-foreground">
-                <AvatarFallback>1</AvatarFallback>
+              <Avatar className="h-16 w-16 mx-auto mb-4">
+                <AvatarFallback className="bg-primary text-primary-foreground text-2xl font-bold">1</AvatarFallback>
               </Avatar>
               <h3 className="font-bold mb-2">Connect Your Data</h3>
               <p className="text-sm text-muted-foreground">
@@ -225,8 +224,8 @@ export default function Demo1() {
               </p>
             </div>
             <div className="text-center">
-              <Avatar className="h-16 w-16 mx-auto mb-4 bg-primary text-primary-foreground">
-                <AvatarFallback>2</AvatarFallback>
+              <Avatar className="h-16 w-16 mx-auto mb-4">
+                <AvatarFallback className="bg-primary text-primary-foreground text-2xl font-bold">2</AvatarFallback>
               </Avatar>
               <h3 className="font-bold mb-2">Analyze & Visualize</h3>
               <p className="text-sm text-muted-foreground">
@@ -234,8 +233,8 @@ export default function Demo1() {
               </p>
             </div>
             <div className="text-center">
-              <Avatar className="h-16 w-16 mx-auto mb-4 bg-primary text-primary-foreground">
-                <AvatarFallback>3</AvatarFallback>
+              <Avatar className="h-16 w-16 mx-auto mb-4">
+                <AvatarFallback className="bg-primary text-primary-foreground text-2xl font-bold">3</AvatarFallback>
               </Avatar>
               <h3 className="font-bold mb-2">Share Insights</h3>
               <p className="text-sm text-muted-foreground">

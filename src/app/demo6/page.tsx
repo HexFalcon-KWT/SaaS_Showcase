@@ -507,7 +507,7 @@ export default function Demo6Page() {
             viewport={viewportConfig}
             variants={fadeInUp}
           >
-            <h2 className="mb-6 text-5xl font-bold md:text-6xl">
+            <h2 className="mb-6 text-5xl font-bold md:text-6xl text-white">
               Ready to Experience <span className="gradient-text">VelocityOS?</span>
             </h2>
             <p className="mx-auto mb-12 max-w-2xl text-xl text-muted-foreground">

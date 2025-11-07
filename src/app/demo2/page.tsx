@@ -22,7 +22,6 @@ export default function Demo2() {
           </div>
           <div className="flex gap-6 items-center">
             <Link href="/" className="hover:text-primary">Home</Link>
-            <Link href="/demo1" className="hover:text-primary">Demo 1</Link>
             <Button variant="ghost">Features</Button>
             <Button variant="ghost">Pricing</Button>
             <Button>Start Creating</Button>

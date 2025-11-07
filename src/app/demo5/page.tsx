@@ -363,7 +363,7 @@ export default function Demo5Page() {
             <TabsContent value="overview" className="mt-8">
               <HeroVideoDialog
                 animationStyle="from-center"
-                videoSrc="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                videoSrc="https://www.youtube.com/embed/arj7oStGLkU"
                 thumbnailSrc="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=675&fit=crop"
                 thumbnailAlt="NexusAI Platform Overview"
               />
@@ -528,31 +528,33 @@ export default function Demo5Page() {
                 transition={{ delay: idx * 0.1 }}
               >
                 <CardSpotlight className={`p-8 ${plan.popular ? "enhanced-shadow border-2 border-purple-500" : ""}`}>
-                  {plan.popular && (
-                    <Badge className="mb-4 bg-gradient-to-r from-purple-500 to-pink-500 border-0">
-                      Most Popular
-                    </Badge>
-                  )}
-                  <h3 className="mb-2 text-2xl font-bold">{plan.name}</h3>
-                  <p className="mb-4 text-sm text-muted-foreground">{plan.description}</p>
-                  <div className="mb-6">
-                    <span className="text-4xl font-bold">{plan.price}</span>
-                    {plan.price !== "Custom" && <span className="text-muted-foreground">/month</span>}
+                  <div className="text-white dark:text-foreground">
+                    {plan.popular && (
+                      <Badge className="mb-4 bg-gradient-to-r from-purple-500 to-pink-500 border-0">
+                        Most Popular
+                      </Badge>
+                    )}
+                    <h3 className="mb-2 text-2xl font-bold">{plan.name}</h3>
+                    <p className="mb-4 text-sm text-white/70 dark:text-muted-foreground">{plan.description}</p>
+                    <div className="mb-6">
+                      <span className="text-4xl font-bold">{plan.price}</span>
+                      {plan.price !== "Custom" && <span className="text-white/70 dark:text-muted-foreground">/month</span>}
+                    </div>
+                    <ul className="mb-8 space-y-3">
+                      {plan.features.map((feature, i) => (
+                        <li key={i} className="flex items-center gap-2 text-sm">
+                          <Check className="h-4 w-4 text-green-500" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Button
+                      className={`w-full ${plan.popular ? "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600" : ""}`}
+                      variant={plan.popular ? "default" : "outline"}
+                    >
+                      {plan.price === "Custom" ? "Contact Sales" : "Start Free Trial"}
+                    </Button>
                   </div>
-                  <ul className="mb-8 space-y-3">
-                    {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-center gap-2 text-sm">
-                        <Check className="h-4 w-4 text-green-500" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button
-                    className={`w-full ${plan.popular ? "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600" : ""}`}
-                    variant={plan.popular ? "default" : "outline"}
-                  >
-                    {plan.price === "Custom" ? "Contact Sales" : "Start Free Trial"}
-                  </Button>
                 </CardSpotlight>
               </motion.div>
             ))}
