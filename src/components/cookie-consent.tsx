@@ -7,6 +7,11 @@ import "vanilla-cookieconsent/dist/cookieconsent.css";
 export function CookieConsentProvider() {
   useEffect(() => {
     CookieConsent.run({
+      cookie: {
+        name: 'cc_cookie',
+        useLocalStorage: true,
+        expiresAfterDays: 365,
+      },
       guiOptions: {
         consentModal: {
           layout: "box inline",
@@ -37,7 +42,7 @@ export function CookieConsentProvider() {
             consentModal: {
               title: "We use cookies",
               description:
-                "We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking 'Accept All', you consent to our use of cookies.",
+                "We use cookies to improve your experience and analyze site traffic. You can accept all or manage your preferences.",
               acceptAllBtn: "Accept All",
               acceptNecessaryBtn: "Reject All",
               showPreferencesBtn: "Manage Preferences",
