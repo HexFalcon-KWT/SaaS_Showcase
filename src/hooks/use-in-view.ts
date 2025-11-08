@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 
 interface UseInViewOptions extends IntersectionObserverInit {
   /**
@@ -21,6 +21,16 @@ export function useInView(options: UseInViewOptions = {}) {
   const ref = useRef<HTMLElement>(null);
   const [isInView, setIsInView] = useState(false);
 
+  // Memoize observer options to prevent recreating observer on every render
+  const observerOptions = useMemo(
+    () => ({
+      threshold,
+      ...restOptions,
+    }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [threshold, JSON.stringify(restOptions)]
+  );
+
   useEffect(() => {
     const element = ref.current;
     if (!element) return;
@@ -35,10 +45,7 @@ export function useInView(options: UseInViewOptions = {}) {
           observer.disconnect();
         }
       },
-      {
-        threshold,
-        ...restOptions,
-      }
+      observerOptions
     );
 
     observer.observe(element);
@@ -46,7 +53,7 @@ export function useInView(options: UseInViewOptions = {}) {
     return () => {
       observer.disconnect();
     };
-  }, [threshold, triggerOnce, restOptions]);
+  }, [triggerOnce, observerOptions]);
 
   return { ref, isInView };
 }

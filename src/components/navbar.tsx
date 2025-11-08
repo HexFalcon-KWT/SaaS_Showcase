@@ -22,10 +22,12 @@ export function Navbar() {
   const [demosOpen, setDemosOpen] = useState(false);
   const [componentsOpen, setComponentsOpen] = useState(false);
 
-  // Prevent hover behavior - make navigation click-only for better UX
-  const preventHover = (event: any) => {
-    const e = event as Event;
-    e.preventDefault();
+  // Prevent hover behavior for mouse only - preserve touch/pen interactions for accessibility
+  const preventHover = (event: React.PointerEvent) => {
+    // Only prevent default for mouse pointers to preserve touch/pen functionality
+    if (event.pointerType === "mouse") {
+      event.preventDefault();
+    }
   };
 
   return (

@@ -12,7 +12,7 @@ import { fadeInUp, staggerContainer, staggerItem, viewportConfig } from "@/lib/a
 // Lazy load ShinyButton for CTA section
 const ShinyButton = dynamic(
   () => import("@/components/ui/shiny-button").then((mod) => ({ default: mod.ShinyButton })),
-  { ssr: false }
+  { ssr: false, suspense: true }
 );
 
 const features = [
