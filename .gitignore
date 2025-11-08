@@ -8,8 +8,7 @@
 
 # testing
 /coverage
-/ClaudeDemoProject2/
-/ClaudeDemoProject3/
+/temp/
 /.claude/
 
 # next.js

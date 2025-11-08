@@ -22,6 +22,14 @@ export function Navbar() {
   const [demosOpen, setDemosOpen] = useState(false);
   const [componentsOpen, setComponentsOpen] = useState(false);
 
+  // Prevent hover behavior for mouse only - preserve touch/pen interactions for accessibility
+  const preventHover = (event: React.PointerEvent) => {
+    // Only prevent default for mouse pointers to preserve touch/pen functionality
+    if (event.pointerType === "mouse") {
+      event.preventDefault();
+    }
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
@@ -36,8 +44,16 @@ export function Navbar() {
           <NavigationMenuList>
             {/* Demos Dropdown */}
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Demos</NavigationMenuTrigger>
-              <NavigationMenuContent>
+              <NavigationMenuTrigger
+                onPointerMove={preventHover}
+                onPointerLeave={preventHover}
+              >
+                Demos
+              </NavigationMenuTrigger>
+              <NavigationMenuContent
+                onPointerEnter={preventHover}
+                onPointerLeave={preventHover}
+              >
                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                   <ListItem href="/demo1" title="DataInsight Pro">
                     Analytics platform with real-time dashboards
@@ -63,8 +79,16 @@ export function Navbar() {
 
             {/* Components Dropdown */}
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Components</NavigationMenuTrigger>
-              <NavigationMenuContent>
+              <NavigationMenuTrigger
+                onPointerMove={preventHover}
+                onPointerLeave={preventHover}
+              >
+                Components
+              </NavigationMenuTrigger>
+              <NavigationMenuContent
+                onPointerEnter={preventHover}
+                onPointerLeave={preventHover}
+              >
                 <ul className="grid w-[400px] gap-3 p-4">
                   <ListItem href="/components" title="Shadcn/ui Components">
                     54 premium React components built with Radix UI
